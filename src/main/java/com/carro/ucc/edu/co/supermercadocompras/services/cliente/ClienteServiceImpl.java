@@ -15,6 +15,7 @@ public class ClienteServiceImpl implements IClienteService{
 
     @Autowired
     private ClienteRepository clienteRepository;
+
     @Override
     @Transactional(readOnly = true)
     public List<Cliente> findAll() {
@@ -40,7 +41,6 @@ public class ClienteServiceImpl implements IClienteService{
     @Transactional
     public void delete(Long id) {
         clienteRepository.deleteById(id);
-
     }
 
     @Override
