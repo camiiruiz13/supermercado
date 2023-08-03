@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "ItemFactura")
+@Table(name = "itemfactura")
 @NoArgsConstructor
 public class ItemFactura {
 
@@ -19,7 +19,7 @@ public class ItemFactura {
     private Integer cantidad;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "IdProducto")
+    @JoinColumn(name = "idProducto")
     private Producto producto;
 
     public Double calcularImporte() {
