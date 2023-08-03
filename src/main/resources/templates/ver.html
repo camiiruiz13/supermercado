@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{layout/layout :: head}">
+</head>
+
+<body>
+    <header th:insert="~{/layout/layout :: header}"></header>
+    <div class="card text-start">
+      <img th:if="${#strings.length(cliente.foto) > 0}"
+       class="card-img-top" src="holder.js/100px180/" tyle="max-width: 25%;"
+       th:src="@{'/uploads/' + ${cliente.foto}}" th:alt="${cliente.foto}" />
+      <div class="card-body">
+        <h4 class="card-title"  th:text="${titulo}"></h4>
+        <!--th:href="@{'/factura/form/' + ${cliente.id}}"-->
+        <a class="btn btn-primary"
+           href="#"
+         role="button">
+         <i class="bi bi-file-plus-fill"></i></a>
+        <div class="list-group">
+            <a  class="list-group-item list-group-item-action active" 
+            th:text="${cliente.nombre}"></a>
+            <a class="list-group-item list-group-item-action" th:text="${cliente.apellido}"></a>
+            <a  class="list-group-item list-group-item-action" th:text="${cliente.email}"></a>
+            <a  class="list-group-item list-group-item-action" th:text="${cliente.fechaCreacion}"></a>
+        </div>
+      </div>
+    </div>
+    <footer th:insert="~{/layout/layout :: footer}"></footer>
+</body>
+
+</html>
