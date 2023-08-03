@@ -23,8 +23,34 @@
             <a class="list-group-item list-group-item-action" th:text="${cliente.apellido}"></a>
             <a  class="list-group-item list-group-item-action" th:text="${cliente.email}"></a>
             <a  class="list-group-item list-group-item-action" th:text="${cliente.fechaCreacion}"></a>
+
+            <div th:if="${#lists.isEmpty(cliente.facturas)}"
+                 class="alert-info"
+                 th:text="'No hay facturas asignadas para el cliente ' + ${cliente.nombre} + ' ' + ${cliente.apellido}"></div>
         </div>
       </div>
+    </div>
+    <div th:if="${#lists.isEmpty(cliente.facturas)}"
+    class="table-responsive-sm alert-info">
+        <table th:if="${not #lists.isEmpty(cliente.facturas)}"
+                class="table table-success">
+            <thead>
+                <tr>
+                    <th>folio</th>
+                    <th>descripción</th>
+                    <th>fecha</th>
+                    <th>total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="factura: ${cliente.facturas}">
+                    <td scope="row" th:text="${factura.id}"></td>
+                    <<td th:text="${factura.descripcion}"></td>
+                    <td th:text="${factura.createAt}"></td>
+                    <td th:text="${factura.total}"></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <footer th:insert="~{/layout/layout :: footer}"></footer>
 </body>
