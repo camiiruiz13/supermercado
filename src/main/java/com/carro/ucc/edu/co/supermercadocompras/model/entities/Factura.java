@@ -1,11 +1,9 @@
 package com.carro.ucc.edu.co.supermercadocompras.model.entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,21 +19,20 @@ public class Factura {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotEmpty
     private String descripcion;
 
     private String observacion;
 
-
-    @Column(name = "FechaCreacion")
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(name = "FechaCreacion")
     private Date fechaCreacion;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Cliente cliente;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "IdFactura")
+    @JoinColumn(name = "factura_id")
     private List<ItemFactura> items;
 
     public Factura() {
@@ -46,6 +43,7 @@ public class Factura {
     public void prePersist() {
         fechaCreacion = new Date();
     }
+
 
     public void addItemFactura(ItemFactura item) {
         this.items.add(item);
@@ -61,6 +59,5 @@ public class Factura {
         }
         return total;
     }
-
 
 }

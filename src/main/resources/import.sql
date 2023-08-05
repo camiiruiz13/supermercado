@@ -229,6 +229,149 @@ INSERT INTO [carroCompras].[dbo].[cliente]
 
 
 SET IDENTITY_INSERT [carroCompras].[dbo].[cliente] OFF
-GO
+
+SET IDENTITY_INSERT [carroCompras].[dbo].[producto] ON
+    INSERT INTO [carroCompras].[dbo].[producto]
+           ([id]
+		   ,[fecha_creacion]
+           ,[precio]
+           ,[nombre])
+     VALUES
+           (1
+		   ,GETDATE()
+           ,259990
+           ,'Panasonic Pantalla LCD')
+INSERT INTO [carroCompras].[dbo].[producto]
+           ([id]
+		   ,[fecha_creacion]
+           ,[precio]
+           ,[nombre])
+     VALUES
+           (2
+		   ,GETDATE()
+           ,123490
+           ,'Sony Camara digital DSC-W320B')
+
+INSERT INTO [carroCompras].[dbo].[producto]
+           ([id]
+		   ,[fecha_creacion]
+           ,[precio]
+           ,[nombre])
+     VALUES
+           (3
+		   ,GETDATE()
+           ,1499990
+           ,'Apple iPod shuffle')
+
+INSERT INTO [carroCompras].[dbo].[producto]
+           ([id]
+		   ,[fecha_creacion]
+           ,[precio]
+           ,[nombre])
+     VALUES
+           (4
+		   ,GETDATE()
+           ,37990
+           ,'Sony Notebook Z110')
+
+INSERT INTO [carroCompras].[dbo].[producto]
+           ([id]
+		   ,[fecha_creacion]
+           ,[precio]
+           ,[nombre])
+     VALUES
+           (5
+		   ,GETDATE()
+           ,69990
+           ,'Hewlett Packard Multifuncional F2280')
+
+INSERT INTO [carroCompras].[dbo].[producto]
+           ([id]
+		   ,[fecha_creacion]
+           ,[precio]
+           ,[nombre])
+     VALUES
+           (6
+		   ,GETDATE()
+           ,69990
+           ,'Bianchi Bicicleta Aro 26')
+
+INSERT INTO [carroCompras].[dbo].[producto]
+           ([id]
+		   ,[fecha_creacion]
+           ,[precio]
+           ,[nombre])
+     VALUES
+           (7
+		   ,GETDATE()
+           ,299990
+           ,'Mica Comoda 5 Cajones')
+
+ SET IDENTITY_INSERT [carroCompras].[dbo].[producto] OFF
+ SET IDENTITY_INSERT [carroCompras].[dbo].[factura] ON
+
+INSERT INTO [dbo].[factura]
+           ([id]
+		   ,[fecha_creacion]
+           ,[cliente_id]
+           ,[descripcion]
+           ,[observacion])
+     VALUES
+           (1
+		   ,GETDATE()
+           ,1
+           ,'Factura equipos de oficina'
+           ,NULL)
+
+INSERT INTO [dbo].[factura]
+           ([id]
+		   ,[fecha_creacion]
+           ,[cliente_id]
+           ,[descripcion]
+           ,[observacion])
+     VALUES
+           (2
+		   ,GETDATE()
+           ,1
+           ,'Factura equipos de oficina'
+		   ,'Alguna nota importante!')
+
+     SET IDENTITY_INSERT [carroCompras].[dbo].[factura] OFF
+
+     SET IDENTITY_INSERT [carroCompras].[dbo].[itemfactura] ON
+INSERT INTO [carroCompras].[dbo].[itemfactura]
+           ([id]
+		   ,[cantidad]
+           ,[id_factura]
+           ,[id_producto])
+    VALUES(1,1, 1, 1)
+INSERT INTO [carroCompras].[dbo].[itemfactura]
+           ([id]
+		   ,[cantidad]
+           ,[id_factura]
+           ,[id_producto])
+   VALUES(2,2, 1, 4)
+INSERT INTO [carroCompras].[dbo].[itemfactura]
+           ([id]
+		   ,[cantidad]
+           ,[id_factura]
+           ,[id_producto])
+     VALUES(3,1, 1, 5)
+
+INSERT INTO [carroCompras].[dbo].[itemfactura]
+           ([id]
+		   ,[cantidad]
+           ,[id_factura]
+           ,[id_producto])
+     VALUES(4,1, 1, 7)
+
+INSERT INTO [carroCompras].[dbo].[itemfactura]
+           ([id]
+		   ,[cantidad]
+           ,[id_factura]
+           ,[id_producto])
+     VALUES(5,3, 2, 6)
+
+   SET IDENTITY_INSERT [carroCompras].[dbo].[itemfactura] OFF
 
 
